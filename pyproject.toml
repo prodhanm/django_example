@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "django_ex"
+version = "0.1.0"
+description = "This is a django boilerplate of the most common framework code thta is used in both web development and backend development."
+authors = ["prodhanm <mustafizur.prodhan@gmail.com>"]
+license = "MIT"
+
+[tool.poetry.dependencies]
+python = "^3.8"
+django = "3.2"
+django-environ = "^0.8.1"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
