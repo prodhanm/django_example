@@ -1,3 +1,5 @@
 from django.contrib import admin
+from example.models import Author, NewsItem
 
-# Register your models here.
+admin.site.register(Author)
+admin.site.register(NewsItem)
