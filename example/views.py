@@ -3,5 +3,6 @@ from example.models import NewsItem
 
 def index(request):
     data = NewsItem.objects.all()
+    html = "index.html"
     context = {'data': data}
-    return render(request, 'index.html', context)
+    return render(request, html, context)

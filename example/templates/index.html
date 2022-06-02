@@ -4,4 +4,14 @@
 
 <h1>Hello, World!!!!</h1>
 
+{% for d in data %}
+
+    <h1>{{d.title}}</h1> 
+    <p>by {{d.author}}</p>
+    <p>{{d.body}}</p>
+    <p>{{d.date}}</p>
+
+{% endfor %}
+
+
 {% endblock %}
