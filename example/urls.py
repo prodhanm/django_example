@@ -1,5 +1,6 @@
-from django.contrib import path
+from django.urls import path
+from example import views
 
 urlpatterns = [
-    # path('', views.index)
+    path('', views.index)
 ]
