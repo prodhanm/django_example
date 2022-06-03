@@ -36,6 +36,7 @@ DEBUG = env('DEBUG')
 # Check Kenzie source for setting up actual website.
 ALLOWED_HOSTS = ["*"]
 
+LOGIN_URL = '/login/'
 
 # Application definition
 
