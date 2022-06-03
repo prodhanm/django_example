@@ -2,9 +2,9 @@
 
 {% block content %}
 
-    <form action="/newsadd/" method="post">
+    <form action="/news_add/" method="post">
         {% csrf_token %}
-        {{ form }}
+        {{ form.as_p }}
         <input type="submit" value="Submit!">
     </form>
 
