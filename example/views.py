@@ -23,7 +23,7 @@ def news_add(request):
                 body=data['body'],
                 author=data['author']
             )
-            return HttpResponseRedirect('/')
+            return HttpResponseRedirect(reverse("homepage"))
     # This is a get request.
     form = NewsAddForm()
     context = {"form": form}
