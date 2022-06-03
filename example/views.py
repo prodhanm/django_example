@@ -10,16 +10,21 @@ def index(request):
 
 def news_add(request):
     html = "newsaddform.html"
+    # Initiates a post request.
     if request.method == "POST":
+        # takes in information over a post request.
         form = NewsAddForm(request.POST)
+        # validates a post request.
         if form.is_valid():
             data = form.cleaned_data
+            # Fills the form
             NewsItem.objects.create(
                 title=data['title'],
                 body=data['body'],
                 author=data['author']
             )
             return HttpResponseRedirect('/')
+    # This is a get request.
     form = NewsAddForm()
     context = {"form": form}
     return render(request, html, context)
