@@ -1,4 +1,6 @@
 from django.shortcuts import render, reverse, HttpResponseRedirect
+from django.contrib.auth.decorators import login_required
+
 from example.models import NewsItem
 from example.forms import NewsAddForm, AuthorAddForm
 
@@ -8,6 +10,7 @@ def index(request):
     context = {'data': data}
     return render(request, html, context)
 
+@login_required
 def news_add(request):
     html = "newsaddform.html"
     # Initiates a post request.
@@ -30,6 +33,7 @@ def news_add(request):
     return render(request, html, context)
 
 # This is the function for model form.
+@login_required
 def authoradd(request):
     html = "author_add.html"
     if request.method == "POST":
