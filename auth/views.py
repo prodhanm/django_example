@@ -20,7 +20,10 @@ def login_view(request):
                 ''' The login is the function call and the user object
                 is the variable defined under the if statement.'''
                 login(request, user)
-                return HttpResponseRedirect(reverse("homepage"))
+                ''' The return code is stating that if the user is
+                not logged in, then redirect them to the next parameter,
+                rather than the reverse parameter.'''
+                return HttpResponseRedirect(request.POST.get("next", reverse("homepage")))
     form = LoginForm()
     context = {"form": form}
     return render(request, html, context)
