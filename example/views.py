@@ -43,3 +43,10 @@ def authoradd(request):
     form = AuthorAddForm()
     context = {"form": form}
     return render(request, html, context)
+
+def like_view(request,id):
+    post = NewsItem.objects.get(id=id)
+    post.likes += 1
+    post.save()
+    return HttpResponseRedirect(reverse("homepage"))
+    # return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/')) , kwargs={'id': id}
