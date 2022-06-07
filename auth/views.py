@@ -29,4 +29,5 @@ def login_view(request):
     return render(request, html, context)
 
 def logout_view(request):
-    pass
+    logout(request)
+    return HttpResponseRedirect(reverse("logout_view"))
