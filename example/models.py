@@ -25,6 +25,7 @@ class NewsItem(models.Model):
     body = models.TextField()
     date = models.DateTimeField(default=timezone.now)
     author = models.ForeignKey(Author, on_delete=models.CASCADE)
+    likes = models.IntegerField(default=0)
 
     def __str__(self):
         return self.title
