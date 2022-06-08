@@ -6,4 +6,5 @@ urlpatterns = [
     path('news_add/', views.news_add),
     path('author_add/', views.authoradd),
     path('likes/<int:id>/', views.like_view),
+    path('news/edit/<int:id>/', views.news_edit),
 ]

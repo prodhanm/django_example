@@ -1,5 +1,6 @@
 from django.shortcuts import render, reverse, HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
+import example
 
 from example.models import NewsItem
 from example.forms import NewsAddForm, AuthorAddForm
@@ -31,6 +32,28 @@ def news_add(request):
     form = NewsAddForm()
     context = {"form": form}
     return render(request, html, context)
+
+def news_edit(request, id):
+    news = NewsItem.objects.get(id=id)
+    if request.method == "POST":
+        form = NewsAddForm(request.POST)
+        if form.is_valid():
+            data = form.cleaned_data
+            news.title = data['title'],
+            news.body = data['body'],
+            news.author = data['author']
+            news.save()
+            return HttpResponseRedirect(reverse("homepage"))
+            # args=(id,) is used in terms of a detail page that passes an id.
+    '''Any information from the model, or more so, pertinent information
+    can go here on the get request, as a way to edit those information.'''    
+    form = NewsAddForm(initial={
+        "title": news.title,
+        "body": news.body,
+        "author": news.author.id
+    })
+    context = {"form": form}
+    return render(request, "newsaddform.html", context)
 
 # This is the function for model form.
 @login_required
